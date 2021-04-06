@@ -1,0 +1,41 @@
+PUT YOUR MP7 REPORT IN THIS FILE.
+
+reverse:
+	This program prints a string in reverse and return its length. It works by printing
+ character one by one and add 1 to the return value. The program ends when the char is
+ empty. The argument of this program is the string the user typed in.
+	For input "1234","12345" and "123456", the program doesn't work. For example, when I
+ tested "1234", the output is "4321" and length 32767, which is wrong. The correct output
+ should be "4321" with length 4. To find the error, first we set a breakpoint at the
+ function print_reverse. Then through using gdb, we can find that once the print_reverse
+ function is used for more than the forth time, the value of variable "rest" in the current
+ function is very likely to be abnormally large. This error happens because "rest" is not
+ initialized in print_reverse. Each time we call this function print_reverse, the computer
+ forms a new stack and what in the address of local variable "rest" is just bits. So I
+ change line36 in pr_buggy from "int32_t rest;" to "int32_t rest = 0;" to initialize it.
+
+primeNumber:
+	First we run the code, we can find that the square of prime numbers are output as
+ prime numbers mistakenly. Then when we take breakpoints at is_prime and divides_evenly and
+ display check,divisor and value, we can find that the divides_evenly check divisors from
+ two to the largest number smaller than the root of n. So we can guess that is_prime checks
+ whether a number n is a prime number by checking if all prime numbers whose square is
+ smaller than the n are divisors of n. So when n equals the square of a prime number,
+ is_prime will mistakenly take it as a prime number. The error is caused by ignore the
+ situation of n equals square of a prime. We can fix it by changing the is_prime to check
+ all prime numbers from to 2 to the largest number whose square is smaller than or equal to
+ n.
+
+sort:
+	When running the test1.txt repeatly, we can find that the output is sometime wrong
+ with one element repeats itself such that another element is missing. For example, when I
+ tried 3 2 1, sometimes the output is 1 2 2, the correct one should be 3 2 1. I used gdb to
+ set a breakpoint at the function heapify, then display i,largest,arr[i],arr[l],arr[r],n in
+ function heapify and *a,*b in function swap. Then I use step. After several attempts I
+ found that when the initial heap was set up, the main function tried to iterate from n to
+ 0(let's say the iterator is i) , first swap arry[0] and arry[i] then heapify the new arry.
+ However, it should start from n-1 instead of n. Therefore, the first swap might be wrong,
+ leading to a erroneous intermediate value arry[0]. It is caused by mistakenly taking n-1 as
+ n.
+
+	
