@@ -1,0 +1,32 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	PRINT_SLOT        3000
+//	FIRSTN_NOT_ZERO   3014
+//	FIRSTN_1          301C
+//	LATTER            3023
+//	PRINT_CENTERED    3032
+//	COUNT_LENGTH      303C
+//	COMPARE           3041
+//	SMALLER_TAHN_9    3044
+//	CULCULATE_SPACE   3049
+//	FORMER_SPACE      304E
+//	PRINT_STRING      3053
+//	LATTER_SPACE1     305A
+//	LATTER_SPACE2     305D
+//	NOT_SMALLER_THAN_9  3062
+//	FIRST_9           3064
+//	DONE              306A
+//	SPACE             3073
+//	START_TIME        3074
+//	ZERO              3075
+//	STORE_REGISTER0   3076
+//	STORE_REGISTER1   3077
+//	STORE_REGISTER2   3078
+//	STORE_REGISTER3   3079
+//	STORE_REGISTER4   307A
+//	STORE_REGISTER5   307B
+//	STORE_REGISTER6   307C
+//	STORE_REGISTER7   307D
+
